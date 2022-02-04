@@ -4,6 +4,8 @@ import { CreateUserController } from '@modules/accounts/useCases/CreateUserContr
 
 const userRoutes = Router();
 
-userRoutes.post('/', new CreateUserController().handle);
+const createUserController = new CreateUserController();
+
+userRoutes.post('/', createUserController.handle);
 
 export { userRoutes };

@@ -1,6 +1,7 @@
 import { hash } from 'bcrypt';
+import { inject, injectable } from 'tsyringe';
 
-import { User } from '../entities/User';
+import { User } from '../infra/typeorm/entities/User';
 import { IUsersRepository } from '../repositories/IUsersRepository';
 
 interface IRequest {
@@ -10,8 +11,12 @@ interface IRequest {
   birth_date: Date;
 }
 
+@injectable()
 class CreateUserUseCase {
-  constructor(private usersRepository: IUsersRepository) {}
+  constructor(
+    @inject('UsersRepository')
+    private usersRepository: IUsersRepository
+  ) {}
 
   async execute({
     name,

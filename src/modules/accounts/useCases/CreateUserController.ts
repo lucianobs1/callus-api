@@ -1,15 +1,13 @@
 import { Request, Response } from 'express';
+import { container } from 'tsyringe';
 
-import { UsersRepositoryInMemory } from '../repositories/in-memory/UsersRepositoryInMemory';
 import { CreateUserUseCase } from './CreateUserUseCase';
 
 class CreateUserController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { name, username, password, birth_date } = request.body;
 
-    const createUserUseCase = new CreateUserUseCase(
-      new UsersRepositoryInMemory()
-    );
+    const createUserUseCase = container.resolve(CreateUserUseCase);
 
     const user = await createUserUseCase.execute({
       name,
