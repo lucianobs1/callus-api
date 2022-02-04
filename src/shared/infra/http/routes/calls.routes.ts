@@ -10,7 +10,7 @@ const callsRoutes = Router();
 const createCallsController = new CreateCallController();
 const listCallsController = new ListCallsController();
 
-callsRoutes.post('/:id', ensureAuthenticated, createCallsController.handle);
+callsRoutes.post('/', ensureAuthenticated, createCallsController.handle);
 callsRoutes.get('/', ensureAuthenticated, listCallsController.handle);
 
 export { callsRoutes };
