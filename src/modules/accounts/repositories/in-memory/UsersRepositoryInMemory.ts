@@ -30,6 +30,11 @@ class UsersRepositoryInMemory implements IUsersRepository {
     const user = this.users.find(user => user.username === username);
     return user;
   }
+
+  async findById(user_id: string): Promise<User> {
+    const user = this.users.find(user => user.id === user_id);
+    return user;
+  }
 }
 
 export { UsersRepositoryInMemory };
