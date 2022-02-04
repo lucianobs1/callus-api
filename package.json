@@ -6,11 +6,15 @@
   "scripts": {
     "express": "^4.17.2",
     "dev": "ts-node-dev -r tsconfig-paths/register --transpile-only --ignore-watch node_modules src/server.ts",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli",
     "test": "jest"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "express": "^4.17.2",
+    "pg": "^8.7.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.41",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
