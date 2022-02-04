@@ -1,3 +1,5 @@
+import { AppError } from '@shared/errors/AppError';
+
 import { UsersRepositoryInMemory } from '../repositories/in-memory/UsersRepositoryInMemory';
 import { CreateUserUseCase } from './CreateUserUseCase';
 
@@ -37,6 +39,8 @@ describe('Create User', () => {
 
     await createUserUseCase.execute(user);
 
-    await expect(createUserUseCase.execute(user)).rejects.toBeInstanceOf(Error);
+    await expect(createUserUseCase.execute(user)).rejects.toEqual(
+      new AppError('username already exists')
+    );
   });
 });

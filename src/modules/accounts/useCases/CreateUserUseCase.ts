@@ -1,6 +1,8 @@
 import { hash } from 'bcrypt';
 import { inject, injectable } from 'tsyringe';
 
+import { AppError } from '@shared/errors/AppError';
+
 import { User } from '../infra/typeorm/entities/User';
 import { IUsersRepository } from '../repositories/IUsersRepository';
 
@@ -27,7 +29,7 @@ class CreateUserUseCase {
     const hasUsername = await this.usersRepository.findByUsername(username);
 
     if (hasUsername) {
-      throw new Error('username already exists');
+      throw new AppError('username already exists');
     }
 
     const passwordHash = await hash(password, 8);
