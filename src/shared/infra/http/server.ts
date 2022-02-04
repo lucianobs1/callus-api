@@ -1,6 +1,7 @@
 import 'reflect-metadata';
 import express from 'express';
-import { routes } from 'routes';
+
+import { routes } from '@shared/infra/http/routes';
 
 import '@shared/container';
 import '@shared/infra/typeorm';
