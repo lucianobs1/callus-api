@@ -27,6 +27,10 @@ class CallsRepositoryInMemory implements ICallsRepository {
 
     return call;
   }
+  async findAll(): Promise<Call[]> {
+    const calls = this.calls.map(call => call);
+    return calls;
+  }
 }
 
 export { CallsRepositoryInMemory };
