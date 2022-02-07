@@ -5,6 +5,7 @@ interface ICallsRepository {
   create(data: ICreateCallsDTO): Promise<Call>;
   findAll(): Promise<Call[]>;
   findById(id: string): Promise<Call>;
+  findByClosedCalls(): Promise<Call[]>;
 }
 
 export { ICallsRepository };

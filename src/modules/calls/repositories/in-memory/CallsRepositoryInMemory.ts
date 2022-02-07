@@ -35,6 +35,11 @@ class CallsRepositoryInMemory implements ICallsRepository {
     return call;
   }
 
+  async findByClosedCalls(): Promise<Call[]> {
+    const closedCalls = this.calls.filter(call => !call.is_open);
+    return closedCalls;
+  }
+
   async findAll(): Promise<Call[]> {
     const calls = this.calls.map(call => call);
     return calls;

@@ -30,14 +30,24 @@ class CallsRepository implements ICallsRepository {
     return call;
   }
 
-  async findAll(): Promise<Call[]> {
-    const calls = await this.repository.find();
-    return calls;
-  }
-
   async findById(id: string): Promise<Call> {
     const call = await this.repository.findOne(id);
     return call;
+  }
+
+  async findByClosedCalls(): Promise<Call[]> {
+    const closedCalls = await this.repository.find({
+      where: {
+        is_open: false
+      }
+    });
+
+    return closedCalls;
+  }
+
+  async findAll(): Promise<Call[]> {
+    const calls = await this.repository.find();
+    return calls;
   }
 }
 
