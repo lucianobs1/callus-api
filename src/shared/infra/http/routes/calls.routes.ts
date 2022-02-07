@@ -7,20 +7,20 @@ import { ShowOneCallController } from '@modules/calls/useCases/showOneCall/ShowO
 
 import { ensureAuthenticated } from '../middlewares/ensureAuthenticated';
 
-const callsRoutes = Router();
+const callRoutes = Router();
 
 const createCallsController = new CreateCallController();
 const listOpenCallsController = new ListCallsController();
 const showOneCallController = new ShowOneCallController();
 const listClosedCallsController = new ListClosedCallsController();
 
-callsRoutes.post('/', ensureAuthenticated, createCallsController.handle);
-callsRoutes.get('/', ensureAuthenticated, listOpenCallsController.handle);
-callsRoutes.get(
+callRoutes.post('/', ensureAuthenticated, createCallsController.handle);
+callRoutes.get('/', ensureAuthenticated, listOpenCallsController.handle);
+callRoutes.get(
   '/closed',
   ensureAuthenticated,
   listClosedCallsController.handle
 );
-callsRoutes.get('/:id', ensureAuthenticated, showOneCallController.handle);
+callRoutes.get('/:id', ensureAuthenticated, showOneCallController.handle);
 
-export { callsRoutes };
+export { callRoutes };
