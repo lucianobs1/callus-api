@@ -25,6 +25,14 @@ export class CreateManagers1644273806195 implements MigrationInterface {
             isNullable: true
           },
           {
+            name: 'lives_here',
+            type: 'boolean'
+          },
+          {
+            name: 'is_janitor',
+            type: 'boolean'
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()'

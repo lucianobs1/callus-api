@@ -21,6 +21,12 @@ class Manager {
   @Column()
   telephone: string;
 
+  @Column()
+  is_janitor: boolean;
+
+  @Column()
+  lives_here: boolean;
+
   @CreateDateColumn()
   created_at: Date;
 
