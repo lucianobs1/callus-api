@@ -1,14 +1,14 @@
 import { inject, injectable } from 'tsyringe';
 
 import { Call } from '@modules/calls/infra/typeorm/entities/Call';
-import { CallsRepositoryInMemory } from '@modules/calls/repositories/in-memory/CallsRepositoryInMemory';
+import { ICallsRepository } from '@modules/calls/repositories/ICallsRepository';
 import { AppError } from '@shared/errors/AppError';
 
 @injectable()
 class ShowOneCallUseCase {
   constructor(
     @inject('CallsRepository')
-    private callsRepositoryInMemory: CallsRepositoryInMemory
+    private callsRepositoryInMemory: ICallsRepository
   ) {}
   async execute(id: string): Promise<Call> {
     const call = await this.callsRepositoryInMemory.findById(id);
