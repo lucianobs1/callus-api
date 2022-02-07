@@ -3,8 +3,8 @@ import { Call } from '../infra/typeorm/entities/Call';
 
 interface ICallsRepository {
   create(data: ICreateCallsDTO): Promise<Call>;
-  findAll(): Promise<Call[]>;
   findById(id: string): Promise<Call>;
+  findByOpenCalls(): Promise<Call[]>;
   findByClosedCalls(): Promise<Call[]>;
 }
 
