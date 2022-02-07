@@ -7,6 +7,7 @@ class CallsRepositoryInMemory implements ICallsRepository {
   calls: Call[] = [];
 
   async create({
+    id,
     user_id,
     client_id,
     technician_id,
@@ -16,6 +17,7 @@ class CallsRepositoryInMemory implements ICallsRepository {
     const call = new Call();
 
     Object.assign(call, {
+      id,
       user_id,
       client_id,
       technician_id,
@@ -27,6 +29,12 @@ class CallsRepositoryInMemory implements ICallsRepository {
 
     return call;
   }
+
+  async findById(id: string): Promise<Call> {
+    const call = this.calls.find(call => call.id === id);
+    return call;
+  }
+
   async findAll(): Promise<Call[]> {
     const calls = this.calls.map(call => call);
     return calls;

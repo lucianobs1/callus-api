@@ -34,6 +34,11 @@ class CallsRepository implements ICallsRepository {
     const calls = await this.repository.find();
     return calls;
   }
+
+  async findById(id: string): Promise<Call> {
+    const call = await this.repository.findOne(id);
+    return call;
+  }
 }
 
 export { CallsRepository };
