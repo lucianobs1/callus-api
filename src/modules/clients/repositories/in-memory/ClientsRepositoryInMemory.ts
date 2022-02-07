@@ -1,6 +1,6 @@
 import { Client } from '@modules/clients/infra/typeorm/entities/Client';
 
-import { IClientsRepository } from '../IClientRepository';
+import { IClientsRepository } from '../IClientsRepository';
 
 class ClientsRepositoryInMemory implements IClientsRepository {
   clients: Client[] = [];

@@ -1,6 +1,7 @@
 import { getRepository, Repository } from 'typeorm';
 
-import { IClientsRepository } from '@modules/clients/repositories/IClientRepository';
+import { ICreateManagerDTO } from '@modules/clients/dtos/ICreateManagerDTO';
+import { IClientsRepository } from '@modules/clients/repositories/IClientsRepository';
 
 import { Client } from '../entities/Client';
 

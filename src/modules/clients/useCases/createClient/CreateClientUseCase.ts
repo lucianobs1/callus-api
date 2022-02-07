@@ -1,6 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IClientsRepository } from '@modules/clients/repositories/IClientRepository';
+import { IClientsRepository } from '@modules/clients/repositories/IClientsRepository';
 import { AppError } from '@shared/errors/AppError';
 import { transformToLowerCase } from '@shared/utils/transformToLowerCase';
 
