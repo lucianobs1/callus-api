@@ -17,8 +17,7 @@ export class CreateClients1644268170000 implements MigrationInterface {
           },
           {
             name: 'manager_id',
-            type: 'uuid',
-            isNullable: true
+            type: 'uuid'
           },
           {
             name: 'employee_id',

@@ -6,7 +6,7 @@ import { IManagersRepository } from '@modules/clients/repositories/IManagersRepo
 import { Manager } from '../entities/Manager';
 
 class ManagersRepository implements IManagersRepository {
-  private repository: Repository<Manager>;
+  repository: Repository<Manager>;
 
   constructor() {
     this.repository = getRepository(Manager);

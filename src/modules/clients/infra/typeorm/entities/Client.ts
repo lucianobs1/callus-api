@@ -18,9 +18,6 @@ class Client {
   @Column()
   manager_id: string;
 
-  @Column()
-  employee_id: string;
-
   @CreateDateColumn()
   created_at: Date;
 

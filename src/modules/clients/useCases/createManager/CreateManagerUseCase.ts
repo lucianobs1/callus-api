@@ -16,13 +16,14 @@ class CreateManagerUseCase {
     @inject('ManagersRepository')
     private managersRepository: IManagersRepository
   ) {}
+
   async execute({
     name,
     cellphone,
     telephone,
     is_janitor,
     lives_here
-  }: IRequest): Promise<void> {
+  }: IRequest) {
     await this.managersRepository.create({
       name,
       cellphone,
