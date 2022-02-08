@@ -5,11 +5,12 @@ import { CreateClientUseCase } from './CreateClientUseCase';
 
 class CreateClientController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { name } = request.body;
+    const { name, manager_id } = request.body;
 
     const createClientUseCase = container.resolve(CreateClientUseCase);
     await createClientUseCase.execute({
-      name
+      name,
+      manager_id
     });
 
     return response.status(201).send();

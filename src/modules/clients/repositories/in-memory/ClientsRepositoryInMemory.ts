@@ -5,11 +5,12 @@ import { IClientsRepository } from '../IClientsRepository';
 class ClientsRepositoryInMemory implements IClientsRepository {
   clients: Client[] = [];
 
-  async create(name: string): Promise<void> {
+  async create(name: string, manager_id: string): Promise<void> {
     const client = new Client();
 
     Object.assign(client, {
-      name
+      name,
+      manager_id
     });
 
     this.clients.push(client);

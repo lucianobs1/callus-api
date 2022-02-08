@@ -6,6 +6,7 @@ import { transformToLowerCase } from '@shared/utils/transformToLowerCase';
 
 interface IRequest {
   name: string;
+  manager_id: string;
 }
 
 @injectable()
@@ -14,7 +15,7 @@ class CreateClientUseCase {
     @inject('ClientsRepository')
     private clientsRepository: IClientsRepository
   ) {}
-  async execute({ name }: IRequest): Promise<void> {
+  async execute({ name, manager_id }: IRequest): Promise<void> {
     const clientName = transformToLowerCase(name);
 
     const hasClient = await this.clientsRepository.findByName(clientName);
@@ -23,7 +24,7 @@ class CreateClientUseCase {
       throw new AppError('Client name already exists');
     }
 
-    await this.clientsRepository.create(clientName);
+    await this.clientsRepository.create(clientName, manager_id);
   }
 }
 

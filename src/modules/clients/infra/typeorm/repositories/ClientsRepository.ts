@@ -1,6 +1,6 @@
 import { getRepository, Repository } from 'typeorm';
 
-import { IClientsRepository } from '@modules/clients/repositories/IClientRepository';
+import { IClientsRepository } from '@modules/clients/repositories/IClientsRepository';
 
 import { Client } from '../entities/Client';
 
@@ -11,9 +11,10 @@ class ClientsRepository implements IClientsRepository {
     this.repository = getRepository(Client);
   }
 
-  async create(name: string): Promise<void> {
+  async create(name: string, manager_id: string): Promise<void> {
     const client = this.repository.create({
-      name
+      name,
+      manager_id
     });
 
     await this.repository.save(client);
