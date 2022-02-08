@@ -2,10 +2,14 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  ManyToOne,
   PrimaryColumn,
   UpdateDateColumn
 } from 'typeorm';
 import { v4 as uuidV4 } from 'uuid';
+
+import { Manager } from './Manager';
 
 @Entity('clients')
 class Client {
@@ -17,6 +21,10 @@ class Client {
 
   @Column()
   manager_id: string;
+
+  @ManyToOne(() => Manager)
+  @JoinColumn({ name: 'manager_id' })
+  manager: Manager;
 
   @CreateDateColumn()
   created_at: Date;

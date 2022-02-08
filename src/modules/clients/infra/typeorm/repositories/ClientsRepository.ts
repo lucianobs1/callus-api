@@ -26,7 +26,9 @@ class ClientsRepository implements IClientsRepository {
   }
 
   async findAll(): Promise<Client[]> {
-    const clients = await this.repository.find();
+    const clients = await this.repository.find({
+      relations: ['manager']
+    });
     return clients;
   }
 }
