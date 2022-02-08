@@ -24,6 +24,11 @@ class ClientsRepository implements IClientsRepository {
     const client = this.repository.findOne({ name });
     return client;
   }
+
+  async findAll(): Promise<Client[]> {
+    const clients = await this.repository.find();
+    return clients;
+  }
 }
 
 export { ClientsRepository };
